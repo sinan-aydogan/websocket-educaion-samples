@@ -1,0 +1,15 @@
+{
+  "name": "seviye1",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "WebSocket öğrenme yolunda 1.seviye bir uygulama",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sinan AYDOĞAN",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
