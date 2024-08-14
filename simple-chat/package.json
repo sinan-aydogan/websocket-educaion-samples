@@ -1,0 +1,21 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "Simple text based chat system",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat",
+    "websocket",
+    "javascript",
+    "nodejs"
+  ],
+  "author": "Sinan AYDOĞAN",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

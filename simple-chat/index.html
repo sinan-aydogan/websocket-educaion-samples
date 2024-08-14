@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Simple Chat</title>
+    </head>
+    <body>
+        <!--  Messages  -->
+        <div id="messages"></div>
+
+        <!--  Message Input  -->
+        <input type="text" id="messageInput" placeholder="Your message..."/>
+
+        <!--  Submit Button  -->
+        <button onclick="sendMessage()">Send</button>
+
+        <script>
+            /*Connect to websocket server*/
+            const socket = new WebSocket('ws://localhost:8081')
+
+                /*Listen connection open*/
+            socket.onopen = () => {
+                console.log("Connected to websocket server")
+            }
+
+            socket.onmessage = async(event) => {
+                let message = await event.data.text()
+                console.log("A message recived: " + message)
+                addNewMessageToMessages(message)
+            }
+
+            function sendMessage() {
+                
+                /*Get input value*/
+                const refMessageInput = document.getElementById('messageInput')
+                const message = refMessageInput.value
+
+                /*Send input value to websocket server*/
+                socket.send(message)
+                refMessageInput.value = ''
+            }
+
+            function addNewMessageToMessages(message) {
+                const refMessages = document.getElementById('messages')
+                const refMessage = document.createElement('p')
+
+                refMessage.textContent = message
+                refMessages.appendChild(refMessage)
+            }
+        </script>
+    </body>
+</html>
